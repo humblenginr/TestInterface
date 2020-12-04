@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+
+
+.welcomepage {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("https://images.unsplash.com/photo-1485546246426-74dc88dec4d9");
+    background-size: cover;
+    position: relative;
+
+}
+
+
+.welcome-text{
+    font-family: 'Dancing Script', cursive;
+    font-size: 90px;
+    color: #E3DBC6;
+    position: absolute;
+    top: 83px;
+    left: 700px;
+}
+
+
+.body-text{
+    font-family: 'Dancing Script', cursive;
+    font-size: 90px;
+    color: #E8CCE4;
+    position: absolute;
+    top: 450px;
+    left: 750px;
+}

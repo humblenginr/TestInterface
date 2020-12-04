@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap');
+
+
+.testrow{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+
+
+}
+
+ .profile-card-4{
+     width: 400px;
+     margin-top: 100px;
+
+     
+ }
+ 
+  .profile-card-4 p {
+    font-size: 18px;
+    font-family: 'Hind', sans-serif;
+    font-weight: 500;
+
+  }
+  .profile-card-4 .card-img-block {
+    width: 400px;
+    margin: 0 auto;
+    position: relative;
+    top: -20px;
+  
+  }
+  
+  .profile-card-4 .card-img-block img{
+      max-height: 270px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+  }
+  
+  

@@ -1,0 +1,11 @@
+TODO: Make this responsive
+TODO: Add loading page while loading
+TODO: Make some hover effects and make the landing page beautiful
+TODO: Add css to the signup page!
+
+TODO:NOTE THAT INSERTING IMAGES IN REACT FOLLOWS A DIFFERENT METHOD AND WE HAVE DONE IT IN FOOTER.JS..PLS CHECK IT OUT!
+
+FIXME: Check the bugs(warnings that are in the console)
+
+TODO: find a way to add eventListener to the svg so that we can pop up our card when the user
+            touches the ball 

@@ -1,0 +1,9 @@
+
+body{
+    margin: 0;
+}
+.button {
+    position: absolute;
+    left: 1350px;
+    top: 15px;
+}

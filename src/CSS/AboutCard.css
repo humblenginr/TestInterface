@@ -1,0 +1,327 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,400;1,500&display=swap');
+body {
+  font-family: "Open Sans", sans-serif;
+}
+*:hover {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+section {
+  float: left;
+  width: 100%;
+  background: #fff; /* fallback for old browsers */
+  padding: 30px 0;
+}
+h1 {
+  float: left;
+  width: 100%;
+  color: #232323;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+h1 span {
+  font-family: "Libre Baskerville", serif;
+  display: block;
+  font-size: 45px;
+  text-transform: none;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  font-weight: 700;
+}
+h1 a {
+  color: #131313;
+  font-weight: bold;
+}
+
+.profile-card-1 {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  width: 100%;
+  height: 350px;
+  border: none;
+  text-align: center;
+  color: white;
+  border-radius: 1%;
+}
+
+.profile-card-1 .background{
+  width: 100%;
+  vertical-align: top;
+  opacity: 1;
+  filter: blur(1px);
+  transform: scale(1);
+
+}
+
+.profile-card-1 .card-content{
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  padding: 15px 25px;
+}
+
+.profile-card-1 .profile{
+  font-size: larger;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  width: 120px;
+  height: 130px;
+  opacity: 0.9;
+  transform: translate(-50%, 0%);
+  box-shadow: 3px 2px 2px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(26, 26, 26, 0.4);
+}
+
+.profile-card-1 h2{
+  margin-top: 5px;
+  font-size: 25px;
+  font-weight: 350;
+  letter-spacing: 2px;
+  font-family: "Montserrat", sans-serif;
+}
+.profile-card-1 small{
+  font-size: 15px;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+.profile-card-1 i {
+  display: inline;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid white;
+  padding: 6.7px;
+  margin-left: 9px;
+  text-decoration: none;
+}
+.profile-card-1 .icon-block{
+  float: left;
+  margin-top: 15px;
+  width: 100%;
+  
+
+}
+
+.profile-card-1 i:hover{
+  background-color: white;
+  color: #777E8B;
+  text-decoration: none;
+
+}
+
+/* first card ends here */
+
+.profile-card-2 .card-img-block{
+  float: left;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+
+}
+
+.profile-card-2 .profile{
+  border-radius: 50%;
+  position: absolute;
+  top:-90px;
+  left: 100px;
+  width: 120px;
+  height: 130px;
+  opacity: 0.9;
+
+  box-shadow: 3px 2px 2px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(26, 26, 26, 0.4);
+}
+
+.profile-card-2 .card-body {
+  position: relative;
+  
+}
+
+.profile-card-2 h5{
+  font-weight: 500;
+  letter-spacing: 1%;
+}
+
+.profile-card-2 p{
+  font-style: italic;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 23px;
+  letter-spacing: 1px;
+}
+
+.profile-card-2 i {
+  display: inline;
+  font-size: 19px;
+  color: black;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 6.7px;
+  margin-left: 19px;
+}
+.profile-card-2 .icon-block{
+  float: left;
+  margin-top: 15px;
+  margin-left: 70px;
+  width: 100%;
+  
+
+}
+
+.profile-card-2 i:hover{
+  background-color: white;
+  color: #0169f1;
+  text-decoration: none;
+  font-size: 22px;
+
+}
+
+.profile-card-2 .facebook{
+  border-radius: 90%;
+  font-size: 15px;
+}
+
+
+/* Second card ends here */
+
+.profile-card-3 {
+  height:368px;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  text-align: center;
+  border: none;
+  width: 100%;
+}
+
+.profile-card-3 .background-block{
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+
+}
+
+.profile-card-3 .profile{
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+  width: 100px;
+  height: 110px;
+  opacity: 0.9;
+  z-index: 99999;
+
+  box-shadow: 3px 2px 2px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(26, 26, 26, 0.4);
+}
+
+.profile-card-3 .background{
+  width: 100%;
+  vertical-align: top;
+  transform: scaleY(none);
+  
+
+}
+
+.profile-card-3 .card-content {
+  width: 100%;
+  padding: 15px 25px;
+  color: black;
+  background-color:  #efefef;
+  height: 50%;
+  position: relative;
+  z-index: 9999;
+}
+
+.profile-card-3 .card-content::before {
+  content: "";
+  background-color: #efefef;
+  width: 120%;
+  height: 100%;
+  position: absolute;
+  left: 10px;
+  bottom: 50px;
+  transform: rotate(-13deg);
+  z-index: -1;
+}
+
+.profile-card-3 h2{
+  font-size: 30px;
+  font-weight: 400;
+
+}
+
+.profile-card-3 small{
+  margin-top: 9px;
+  font-weight: 10;
+  font-size: 20px;
+}
+
+.profile-card-3 i {
+  display: inline;
+  font-size: 19px;
+  color: black;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 6.7px;
+  margin-left: 19px;
+}
+.profile-card-3 .icon-block{
+  float: left;
+  margin-top: 15px;
+  margin-left: 0px;
+  width: 100%;
+  
+
+}
+
+.profile-card-3 i:hover{
+  background-color: #efefef;
+  color: #0169f1;
+  text-decoration: none;
+  font-size: 22px;
+
+}
+
+/* Third card ends here */
+
+.profile-card-4 .card-img-block {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  top: -20px;
+
+}
+
+.profile-card-4 .card-img-block img{
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+}
+
+.profile-card-4 h5{
+  font-size: 19px;
+  font-weight: 550;
+}
+
+.profile-card-4 p {
+  font-size: 14px;
+  font-weight: 200;
+  font-style: italic;
+  letter-spacing: 1px;
+}
