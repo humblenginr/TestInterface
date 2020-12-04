@@ -2,7 +2,7 @@ import React, { useContext, useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
 import { Link, useHistory } from "react-router-dom"
 import { useAuth } from "../Contexts/Authcontext"
-import { database } from "../Utils/firebase"
+
 
 
 export default function Signup() {
