@@ -1,21 +1,36 @@
+
+// react imports 
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Alert, Button, Form, InputGroup, ListGroup, ListGroupItem } from 'react-bootstrap'
+import { Alert, Button, Form, ListGroup, ListGroupItem } from 'react-bootstrap'
+
+// firebase imports
 import "firebase/database"
-import firebase from "firebase/app"
-import "../../CSS/TodoList.css"
-import {v4} from "uuid"
-import { TodoContext } from '../../Contexts/TodoContext'
-import { ADD_TO_DATABASE } from '../../Contexts/ACTION.TYPES'
-import { useAuth } from '../../Contexts/Authcontext'
 import { database } from '../../Utils/firebase'
+import { useAuth } from '../../Contexts/Authcontext'
+
+// CSS import
+import "../../CSS/TodoList.css"
+
+// context import
+import { TodoContext } from '../../Contexts/TodoContext'
+
+
+import {v4} from "uuid"
+import { ADD_TO_DATABASE } from '../../Contexts/ACTION.TYPES'
+
+
 
 export const TodoList = () => {
+
+
     const {currentUser} = useAuth()
     const user_input_todo = useRef();
     const {dispatch, todoList} = useContext(TodoContext)
     const [noValue, setNoValue] = useState(false)
-    // const todoRef = firebase.database().ref().child(currentUser)
 
+
+   // **** Use Effect starts here **** 
+   
     useEffect(()=>{
 
         const list = [];
@@ -26,24 +41,24 @@ export const TodoList = () => {
              console.log(list);
          });
     },[])
+
+    // **** Use Effect ends here **** 
          
 
 
 
 
-    //handle Submit
+    // **** handle Submit starts here ****
+
+
     const handleSubmit = (e) => {
 
         e.preventDefault();
-        //Push the values to the state
 
-    
         const todo = user_input_todo.current.value
 
-        if(todo === ""){
-            
+        if(todo === ""){   
             setNoValue(true)
-
         }
         else{
             setNoValue(false)
@@ -52,18 +67,16 @@ export const TodoList = () => {
                 todo,
                 id: v4()
             }
-    
+
+            //dispatching to the reducer
             dispatch({
                 type: ADD_TO_DATABASE,
                 payload : todoObject
-            })
-
-           
+            })  
         }
-
-
-
     }
+
+    //**** handle submit ends here ****
 
     return (
         <div className="todo-list  row">
@@ -78,12 +91,10 @@ export const TodoList = () => {
                         <Button className="btn-success ml-5" type="submit">ADD</Button>
                         
                     </Form>
-
-
                 </div>
                 <div className="col-6 todo-display ">
                 <ListGroup>
-
+                     {/* TODO: Have to display the todos */}
                 </ListGroup>
                 </div>
 
