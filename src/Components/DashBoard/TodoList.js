@@ -30,52 +30,6 @@ export const TodoList = () => {
     const [noValue, setNoValue] = useState(false)
 
 
-
-    useEffect( () => {
-        const list = []
-        database.collection(currentUser.uid).get().then(snapshot => {
-            snapshot.docs.forEach(e => {
-                list.push(e.data().id)
-            })
-            console.log(list);
-            console.log(todoList);
-            todoList.forEach(obj => {
-                console.log("the id of object  is" , obj.id);
-                if(!(list.includes(obj.id)))
-                    {
-                        console.log("It is getting added");
-                        database.collection(currentUser.uid).add(obj) 
-                    }
-                    
-        })
-
-            
-
-
-            })
-
-            
-
-    
-
-        // database.collection(currentUser.uid).get().then(snap => {
-        //     snap.docs.forEach(e => {
-        //         console.log(e.data());
-        //     })
-
-        // })
-            
-
-        
-    },[todoList, currentUser.uid])
-
-
-
-
-
-
-
-
     // **** handle Submit starts here ****
 
 
@@ -122,11 +76,17 @@ export const TodoList = () => {
                 </div>
                 <div className="col-6 todo-display ">
                     <ListGroup>
-                        {todoList.map(element => (
-                            <ListGroupItem key={element.id}>
-                                {element.todo}
-                            </ListGroupItem>
-                        ))}
+                        {database.collection(currentUser.uid).get().then(
+                            snap => {
+                                snap.docs.forEach(e => {
+                                    <ListGroupItem key={e.data().id}>
+                                        {
+                                            e.data().todo
+                                        }
+                                    </ListGroupItem>
+                                })
+                            }
+                        )}
                     </ListGroup>
                 </div>
 
