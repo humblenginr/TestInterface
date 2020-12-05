@@ -9,14 +9,3 @@ FIXME: Check the bugs(warnings that are in the console)
 
 TODO: find a way to add eventListener to the svg so that we can pop up our card when the user
             touches the ball 
-
-
-
-
-WORKFLOW FOR TODOLIST:
-
-* First of all, for each and every unique user, we have to have a unique document,
-i.e whenever a new user is created, create a collection with his uid as name
-* And then , whenever the user adds a todo, it is first sent to the database and gets added there.
-* so this way , all the todos will be added to the database
-* now for the display part, we will loop through all the datas in the database and then render it in the child

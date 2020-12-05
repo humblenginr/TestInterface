@@ -37,6 +37,8 @@ export const TodoList = () => {
             snapshot.docs.forEach(e => {
                 list.push(e.data().id)
             })
+            console.log(list);
+            console.log(todoList);
             todoList.forEach(obj => {
                 console.log("the id of object  is" , obj.id);
                 if(!(list.includes(obj.id)))
@@ -66,26 +68,6 @@ export const TodoList = () => {
 
         
     },[todoList, currentUser.uid])
-
-
-    useEffect(() => {
-        console.log("this effect is called");
-        const list = []
-        database.collection(currentUser.uid).get().then(snapshot => {
-            snapshot.docs.forEach(e => {
-                list.push(e.data())
-            })
-            list.forEach(e => {
-                dispatch({
-                    type: ADD_TO_DATABASE,
-                    payload: e
-                })
-            })
-        })
-
-
-
-    },[])
 
 
 
