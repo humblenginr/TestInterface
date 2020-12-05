@@ -16,6 +16,19 @@ export const TodoList = () => {
     const [noValue, setNoValue] = useState(false)
     // const todoRef = firebase.database().ref().child(currentUser)
 
+    useEffect(()=>{
+
+        const list = [];
+        database.collection(currentUser.uid).get().then(snap => {
+             snap.docs.forEach(doc => {
+                 list.push(doc.data())
+             })
+             console.log(list);
+         });
+    },[])
+         
+
+
 
 
     //handle Submit
@@ -52,10 +65,6 @@ export const TodoList = () => {
 
     }
 
-
- 
-
-
     return (
         <div className="todo-list  row">
 
@@ -73,21 +82,9 @@ export const TodoList = () => {
 
                 </div>
                 <div className="col-6 todo-display ">
-                    <ListGroup>
-                    {/* {
-                        todoRef.once('value', snap =>{
-                            snap.map(todoObject => (
-                                <ListGroupItem key={todoObject.id}>
-                                    {todoObject.todo}
-                                </ListGroupItem>
-                            )
+                <ListGroup>
 
-                        )
-                            }
-
-                        )
-                    } */}
-                    </ListGroup>
+                </ListGroup>
                 </div>
 
         </div>
