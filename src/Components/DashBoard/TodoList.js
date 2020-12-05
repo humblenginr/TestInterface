@@ -29,8 +29,24 @@ export const TodoList = () => {
     const {dispatch, todoList} = useContext(TodoContext)
     const [noValue, setNoValue] = useState(false)
 
+    const [ todos, setTodos ] = useState()
+
 
     // **** handle Submit starts here ****
+
+    React.useEffect(() => {
+        var data = []
+        database.collection(currentUser.uid).get()
+            .then(snap => {
+                snap.docs.forEach(e => {
+                    data.push(e.data())
+                })
+                setTodos(data)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }, [])
 
 
     const handleSubmit = (e) => {
@@ -76,16 +92,10 @@ export const TodoList = () => {
                 </div>
                 <div className="col-6 todo-display ">
                     <ListGroup>
-                        {database.collection(currentUser.uid).get().then(
-                            snap => {
-                                snap.docs.forEach(e => {
-                                    <ListGroupItem key={e.data().id}>
-                                        {
-                                            e.data().todo
-                                        }
-                                    </ListGroupItem>
-                                })
-                            }
+                        {todos && todos.map((item, index) => 
+                            <ListGroupItem key={index}>
+                                {item.todo}
+                            </ListGroupItem>
                         )}
                     </ListGroup>
                 </div>
