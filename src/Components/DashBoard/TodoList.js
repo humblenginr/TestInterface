@@ -24,13 +24,52 @@ import { Displaytodos } from './Displaytodos'
 export const TodoList = () => {
 
 
-    const {currentUser} = useAuth()
+    const {currentUser} = useAuth();
     const user_input_todo = useRef();
     const {dispatch, todoList} = useContext(TodoContext)
     const [noValue, setNoValue] = useState(false)
 
 
-   
+
+    useEffect( () => {
+        const list = []
+        database.collection(currentUser.uid).get().then(snapshot => {
+            snapshot.docs.forEach(e => {
+                list.push(e.data().id)
+            })
+            console.log(list);
+            console.log(todoList);
+            todoList.forEach(obj => {
+                console.log("the id of object  is" , obj.id);
+                if(!(list.includes(obj.id)))
+                    {
+                        console.log("It is getting added");
+                        database.collection(currentUser.uid).add(obj) 
+                    }
+                    
+        })
+
+            
+
+
+            })
+
+            
+
+    
+
+        // database.collection(currentUser.uid).get().then(snap => {
+        //     snap.docs.forEach(e => {
+        //         console.log(e.data());
+        //     })
+
+        // })
+            
+
+        
+    },[todoList, currentUser.uid])
+
+
 
 
 
@@ -82,7 +121,13 @@ export const TodoList = () => {
                     </Form>
                 </div>
                 <div className="col-6 todo-display ">
-                    <Displaytodos></Displaytodos>
+                    <ListGroup>
+                        {todoList.map(element => (
+                            <ListGroupItem key={element.id}>
+                                {element.todo}
+                            </ListGroupItem>
+                        ))}
+                    </ListGroup>
                 </div>
 
         </div>

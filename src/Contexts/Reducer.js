@@ -15,7 +15,7 @@ export const Reducer = (state, action) => {
    switch (action.type) {
        case ADD_TO_DATABASE:
             return [...state, action.payload]
-         break;
+
 
 
         case REMOVE_FROM_DATABASE:
