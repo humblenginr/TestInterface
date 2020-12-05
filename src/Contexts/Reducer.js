@@ -14,8 +14,7 @@ export const Reducer = (state, action) => {
 
    switch (action.type) {
        case ADD_TO_DATABASE:
-           database.collection(currentUser.uid).add({Todo: action.payload.todo,
-                                                    TodoId: action.payload.id})
+            return [...state, action.payload]
          break;
 
 

@@ -17,6 +17,7 @@ import { TodoContext } from '../../Contexts/TodoContext'
 
 import {v4} from "uuid"
 import { ADD_TO_DATABASE } from '../../Contexts/ACTION.TYPES'
+import { Displaytodos } from './Displaytodos'
 
 
 
@@ -29,21 +30,9 @@ export const TodoList = () => {
     const [noValue, setNoValue] = useState(false)
 
 
-   // **** Use Effect starts here **** 
    
-    useEffect(()=>{
 
-        const list = [];
-        database.collection(currentUser.uid).get().then(snap => {
-             snap.docs.forEach(doc => {
-                 list.push(doc.data())
-             })
-             console.log(list);
-         });
-    },[])
 
-    // **** Use Effect ends here **** 
-         
 
 
 
@@ -93,9 +82,7 @@ export const TodoList = () => {
                     </Form>
                 </div>
                 <div className="col-6 todo-display ">
-                <ListGroup>
-                     {/* TODO: Have to display the todos */}
-                </ListGroup>
+                    <Displaytodos></Displaytodos>
                 </div>
 
         </div>
