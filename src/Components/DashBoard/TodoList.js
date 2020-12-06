@@ -26,13 +26,13 @@ export const TodoList = () => {
 
     const {currentUser} = useAuth();
     const user_input_todo = useRef();
-    const {dispatch, todoList} = useContext(TodoContext)
+    const {dispatch, todoList, render} = useContext(TodoContext)
     const [noValue, setNoValue] = useState(false)
-
     const [ todos, setTodos ] = useState()
+    const [renderMe,setRenderMe] = useState(false)
 
 
-    // **** handle Submit starts here ****
+
 
     React.useEffect(() => {
         var data = []
@@ -46,12 +46,13 @@ export const TodoList = () => {
             .catch(error => {
                 console.log(error)
             })
-    }, [])
+    }, [renderMe])
 
 
     const handleSubmit = (e) => {
 
         e.preventDefault();
+        renderMe ? setRenderMe(false) : setRenderMe(true)
 
         const todo = user_input_todo.current.value
 
@@ -74,7 +75,9 @@ export const TodoList = () => {
         }
     }
 
-    //**** handle submit ends here ****
+
+
+
 
     return (
         <div className="todo-list  row">
