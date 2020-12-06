@@ -18,3 +18,7 @@
 .formcont{
     height: 60px;
 }
+
+#list {
+    cursor: pointer;
+}

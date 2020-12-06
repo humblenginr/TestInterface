@@ -75,7 +75,22 @@ export const TodoList = () => {
         }
     }
 
+        const Listgroup = document.getElementById("list")
+        if(Listgroup!==null){
+            Listgroup.addEventListener("click", (listItem => {
 
+                database.collection(currentUser.uid).get().then(snap => {
+                    snap.docs.forEach(doc => {
+                        if(listItem.target.id === doc.data().id){
+                            database.collection(currentUser.uid).doc(doc.id).delete()
+                        }
+                    })
+                    renderMe ? setRenderMe(false) : setRenderMe(true)
+                })
+            }))
+
+          
+        }
 
 
 
@@ -94,9 +109,9 @@ export const TodoList = () => {
                     </Form>
                 </div>
                 <div className="col-6 todo-display ">
-                    <ListGroup>
-                        {todos && todos.map((item, index) => 
-                            <ListGroupItem key={index}>
+                    <ListGroup id = "list">
+                        {todos && todos.map((item) => 
+                            <ListGroupItem id={item.id}>
                                 {item.todo}
                             </ListGroupItem>
                         )}
