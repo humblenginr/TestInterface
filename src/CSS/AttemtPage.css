@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+.left-col {
+    background-color: white;
+    position: relative;
+    height: 90vh;
+}
+.right-col {
+    background-color: white;
+
+}
+
+.Row {
+
+}
+.userCred {
+    background-color: white;
+    color:black;
+    width: 90%;
+    position: absolute;
+    left: 4.9%;
+    top: 4%;
+    height: 12%;
+    border-radius: 6px;
+    text-align: center;
+
+}
+
+.qDisplay {
+    position: absolute;
+    top: 20%;
+    left: 4.9%;
+    width: 90%;
+    background-color: white;
+    color: black;
+    height: 70%;
+    border-radius: 6px;
+    text-align: center;
+}
+
+
+.btnsGroup{
+    position: absolute;
+    top: 93%;
+    left: 33.4%;
+    background-color: white;
+}
+
+.right-col{
+    position: relative;
+}
+.timer {
+    position: absolute;
+    top: 4.9%;
+    background-color: white;
+    height: 6%;
+    border-radius: 6px;
+    width: 40%;
+    left: 29%;
+    text-align: center;
+    color: black;
+}
+
+.qPalatte {
+    position: absolute;
+    top: 20%;
+    background-color: white;
+    color: black;
+    border-radius: 6px;
+    text-align: center;
+    width: 80%;
+    height: 70%;
+    right: 10%;
+}

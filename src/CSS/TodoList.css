@@ -21,4 +21,8 @@
 
 #list {
     cursor: pointer;
+    transition: ease 1s;
+}
+#list ListGroupItem {
+    transition: ease 1s;
 }

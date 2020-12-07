@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Dashboard } from './DashBoard/Dashboard';
 import Login from "./Login"
 import PrivateRoute from "./PrivateRoute"
+import { TestList } from './TestAttempt/TestList';
+import { AttemptPage } from './TestAttempt/AttemptPage';
 
 
 
@@ -18,7 +20,9 @@ const App = () => {
                     <Switch>
                       <Route path="/signup" component={SignUp}/>
                       <PrivateRoute exact path="/" component={Dashboard}/>
-                      <Route exact path="/login" component={Login}/>
+                      <Route path="/login" component={Login}/>
+                      <Route path="/testlist" component={TestList}/>
+                      <Route path="/testattempt" component={AttemptPage}/>
                     </Switch>  
                 </TodoProvider>             
               </AuthProvider>

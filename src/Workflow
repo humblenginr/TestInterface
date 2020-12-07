@@ -7,5 +7,40 @@ TODO:NOTE THAT INSERTING IMAGES IN REACT FOLLOWS A DIFFERENT METHOD AND WE HAVE 
 
 FIXME: Check the bugs(warnings that are in the console)
 
-TODO: find a way to add eventListener to the svg so that we can pop up our card when the user
-            touches the ball 
+
+
+TODO:
+FOR TEST COLUMN:
+We have 1.Attempted TEST
+        2. Live TEST
+        3.Assigned TEST
+
+AIM:
+The user should be able to attend a TEST.
+
+PROCEDURE:
+1.Give user a page where he can select what test to attempt for which the source is database
+2.After selecting, give him the instructions page
+3.Then take him to the test page
+4.The test is acutually fetched from database
+5.We can use local storage to store the data untill the test is completed and then when completed, we can send the RESULT to the database
+6. As soon as the test is completed, we fetch the data from local storage and perform the calculations and then we send back the result to the database.
+7. So basically, we should have a collection to store all the questions which is public
+  and when we want to fetch data, 
+  it is available for every user(of course we can add some restrictions for specified users)
+8. Each and every user has a database space for storing the resutls of the tests he attempted.
+
+TEST PAGE:
+1. It should consist of a Timer.
+2. It should have a question pallate so that the user can navigate through the questions
+3. It should have 
+     *SUBMIT BUTTON(which may have some conditions)
+     *NEXT BUTTON(navigates user to the next question)
+     *PREVIOUS BUTTON (navigates user to the previous question))
+     *ABORT BUTTON(Aborts the test and does not save any data---> requires confirmation)
+
+4. It should have the test area where user is able to see the questions and select the options.
+
+
+
+    

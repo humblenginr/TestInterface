@@ -2,7 +2,6 @@ import React,{useState} from 'react'
 import {  Alert, Col, Row, Card } from 'react-bootstrap'
 import {useHistory } from 'react-router-dom'
 import { useAuth } from '../../Contexts/Authcontext'
-import { Chat } from './Chat'
 import { Footer } from './Footer'
 import { Navbar1 } from './Navbar1'
 import { TestColumn } from './TestColumn'
@@ -21,7 +20,6 @@ export const Dashboard = () => {
             {error && <Alert variant="danger">{error}</Alert>}
             <WelcomePage></WelcomePage>
             <TestColumn></TestColumn>
-            <Chat></Chat> 
             <TodoList></TodoList>  
             <Footer></Footer>
             

@@ -24,7 +24,7 @@ export const TestColumn = () => {
                     </div>
                     <div class="card-body pt-0">
                         <p class="card-text">Attempt a live test to test your understanding of the concepts!</p>
-                        <a href="#" class="btn btn-outline-dark btn-block">Live Test</a>
+                        <a href="/testlist" class="btn btn-outline-dark btn-block">Live Test</a>
                     </div>
                 </div>
             </div>

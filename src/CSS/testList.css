@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.testList {
+    height: auto;
+    width: 80%;
+    background-color: gray;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.group {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.group a{
+    border-radius: 5px;
+    background-color: black;
+    width: 80px;
+    height: 35px;
+    padding: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
