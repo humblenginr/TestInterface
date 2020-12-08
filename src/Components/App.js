@@ -9,6 +9,7 @@ import Login from "./Login"
 import PrivateRoute from "./PrivateRoute"
 import { TestList } from './TestAttempt/TestList';
 import { AttemptPage } from './TestAttempt/AttemptPage';
+import { OnTestComplete } from './TestAttempt/OnTestComplete';
 
 
 
@@ -23,6 +24,7 @@ const App = () => {
                       <Route path="/login" component={Login}/>
                       <Route path="/testlist" component={TestList}/>
                       <Route path="/testattempt" component={AttemptPage}/>
+                      <Route path="/testcomplete" component={OnTestComplete}/>
                     </Switch>  
                 </TodoProvider>             
               </AuthProvider>
