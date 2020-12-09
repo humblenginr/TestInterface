@@ -58,39 +58,15 @@ export const AttemptPage = () => {
                 <div className="qDisplay border">
                      <QuestionDisplay></QuestionDisplay>
 
-                    <div className="options">
-                        <FormGroup check>
-                            <Label check>
-                                <Input type="radio" name="radio1" />{' '}
-                                Option one
-                            </Label>
-                        </FormGroup>
-                        <FormGroup check>
-                            <Label check>
-                                <Input type="radio" name="radio1" />{' '}
-                                Option two
-                            </Label>
-                        </FormGroup>
-                        <FormGroup check>
-                            <Label check>
-                                <Input type="radio" name="radio1" />{' '}
-                                Option three
-                            </Label>
-                        </FormGroup>
-                        <FormGroup check>
-                            <Label check>
-                                <Input type="radio" name="radio1" />{' '}
-                                Option four
-                            </Label>
-                        </FormGroup>
-                    </div>
+
                 </div>
                 <div className="btnsGroup">
                     <div className="btn btn-success mr-3">Submit</div>
                     <div className="btn btn-success mr-3" id="next">Next</div>
-                    <div className="btn btn-success mr-3">Previous</div>
+                    <div className="btn btn-success mr-3" id="prev">Previous</div>
                     <div className="btn btn-success mr-3" onClick={() => {
                         localStorage.removeItem("a");
+                        localStorage.removeItem("qno")
                         clearInterval(timer)
                         history.push("/testlist")
                     }}>Abort</div>
