@@ -20,11 +20,9 @@
 
 .group a{
     border-radius: 5px;
-    background-color: black;
-    width: 80px;
+    width: 78px;
     height: 35px;
     padding: 5px;
     cursor: pointer;
     text-decoration: none;
-    color: white;
 }
