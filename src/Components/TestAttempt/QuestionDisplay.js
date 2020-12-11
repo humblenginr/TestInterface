@@ -22,7 +22,9 @@ export const QuestionDisplay = () => {
             localStorage.qno = JSON.stringify(value);
             setQuestionNo(value)
             const radBtns = document.getElementsByName("radio1")
+            localStorage.setItem(value-1,0)
             for (let i = 0; i <radBtns.length; i++) {
+
                 if(radBtns[i].checked) {
                     localStorage.setItem(value-1,i+1)
                     radBtns[i].checked = false
