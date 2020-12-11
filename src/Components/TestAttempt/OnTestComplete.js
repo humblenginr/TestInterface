@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom';
+import { useAuth } from '../../Contexts/Authcontext';
 import { database } from '../../Utils/firebase'
 
 export const OnTestComplete = () => {
 
     const CorrectAnswers = [];
-    const SelectedAnswers = [];
+    const {SelectedAnswers} = useAuth();
     var marks = 0;
     const [render, setRender] = useState()
     const history  = useHistory()

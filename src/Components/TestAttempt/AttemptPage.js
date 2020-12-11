@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Alert, FormGroup } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 import { Input, Label } from 'reactstrap'
+import { useAuth } from '../../Contexts/Authcontext'
 import "../../CSS/AttemtPage.css"
 import { database } from '../../Utils/firebase'
 import { QuestionDisplay } from './QuestionDisplay'
@@ -10,18 +11,37 @@ import { QuestionDisplay } from './QuestionDisplay'
 export const AttemptPage = () => {
 
     const history =useHistory()
+    const {SelectedAnswers} = useAuth();
+    var ln;
 
 
 
     useEffect(() => {
         const startDate = new Date()
+        database.collection("Questions").get().then(
+            snap => {
+                console.log(snap.docs.length);
+                document.getElementById("abort").addEventListener("click", () => {
+                    for (let i = 0; i < snap.docs.length; i++) {
+                        var item = i+1;
+                        localStorage.removeItem(item)
+                        
+                    }
+                    localStorage.removeItem("a");
+                    localStorage.removeItem("qno")
+                    clearInterval(timer)
+                    history.push("/testlist")
 
+                })
+            }
+        )
 
         if(!(localStorage.a)){
 
             localStorage.a = startDate
             
         }
+        
 
 
 
@@ -67,14 +87,9 @@ export const AttemptPage = () => {
                         clearInterval(timer)
                         history.push("/testcomplete")
                     }}> Submit</div>
-                    <div className="btn btn-success mr-3" id="next">Next</div>
+                    <div className="btn btn-success mr-3" id="next">Save and Next</div>
                     <div className="btn btn-success mr-3" id="prev">Previous</div>
-                    <div className="btn btn-success mr-3" onClick={() => {
-                        localStorage.removeItem("a");
-                        localStorage.removeItem("qno")
-                        clearInterval(timer)
-                        history.push("/testlist")
-                    }}>Abort</div>
+                    <div className="btn btn-success mr-3" id="abort">Abort</div>
                 </div>
             </div>
             <div className="right-col col-4 mt-5 mb-5 ">

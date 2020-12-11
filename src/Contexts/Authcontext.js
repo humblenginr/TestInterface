@@ -15,6 +15,7 @@ export function  AuthProvider ({children}) {
 
     
     const [loading, setLoading] = useState(true)
+    const SelectedAnswers = []
 
 
     //signup through firebase
@@ -53,7 +54,8 @@ export function  AuthProvider ({children}) {
         currentUser,
         signup,
         login,
-        logout
+        logout,
+        SelectedAnswers
     }
 
     
