@@ -21,6 +21,11 @@ export const QuestionDisplay = () => {
             var value = JSON.parse(localStorage.qno) + 1;
             localStorage.qno = JSON.stringify(value);
             setQuestionNo(value)
+            const radBtns = document.getElementsByName("radio1")
+            for (let i = 0; i <radBtns.length; i++) {
+                if(radBtns[i].checked) localStorage.setItem(value-1,i+1)
+                
+            }
         })
         document.getElementById("prev").addEventListener("click",() => {
             var value = JSON.parse(localStorage.qno) - 1;
