@@ -61,7 +61,12 @@ export const AttemptPage = () => {
 
                 </div>
                 <div className="btnsGroup">
-                    <div className="btn btn-success mr-3">Submit</div>
+                    <div className="btn btn-success mr-3" onClick= { () => {
+                        localStorage.removeItem("a");
+                        localStorage.removeItem("qno")
+                        clearInterval(timer)
+                        history.push("/testcomplete")
+                    }}> Submit</div>
                     <div className="btn btn-success mr-3" id="next">Next</div>
                     <div className="btn btn-success mr-3" id="prev">Previous</div>
                     <div className="btn btn-success mr-3" onClick={() => {
