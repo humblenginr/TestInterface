@@ -76,3 +76,8 @@
     height: 70%;
     right: 10%;
 }
+
+.Group{
+    display: flex;
+    flex-direction: column;
+}
