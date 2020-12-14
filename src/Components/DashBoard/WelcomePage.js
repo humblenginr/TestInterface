@@ -10,9 +10,7 @@ export const WelcomePage = () => {
 
 
     const {currentUser} = useAuth()
-    currentUser.updateProfile({
-        displayName: "Your name"
-    })
+
 
 
     return (
