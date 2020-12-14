@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Button } from 'reactstrap'
 import "../../CSS/testList.css"
 import { database } from '../../Utils/firebase'
 
@@ -25,10 +26,10 @@ export const TestList = () => {
                     questions.map( q => (
                         <div className="group mb-5">
                             <div>{q}</div>
-                            <a href="/testattempt" onClick = {() => {
+                            <Button color="light" href="/testattempt" onClick = {() => {
                                 localStorage.QuestionId = q
                                 localStorage.selecAns = JSON.stringify({})
-                            }}> Attempt</a>
+                            }}> Attempt</Button>
                         </div>
                     ))
                 }
