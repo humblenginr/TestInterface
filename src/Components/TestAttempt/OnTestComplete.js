@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom';
+import { Button } from 'reactstrap';
 import { database } from '../../Utils/firebase'
+import { useAuth } from '../../Contexts/Authcontext';
 
 export const OnTestComplete = () => {
 
     
     var selectedAnswers = Object.values(JSON.parse(localStorage.selecAns));
     const [marks, setMarks] = useState(0)
+    const history = useHistory();
+    const {currentUser} = useAuth()
     
     
 
@@ -31,7 +36,7 @@ export const OnTestComplete = () => {
                     
                 }
                 setMarks(value)
-                console.log(correctAnswers);
+                database.collection(currentUser.uid).doc("AttemptedTests").set({[localStorage.QuestionId]: value}, {merge: true})
             }
             
         )
@@ -39,7 +44,7 @@ export const OnTestComplete = () => {
 
     },[])
 
-    // if(correctAnswers) console.log(correctAnswers);
+   
 
 
 
@@ -48,6 +53,23 @@ export const OnTestComplete = () => {
             Hi, your test has completed!!
             <br></br>
             <h1>You have scored {marks} marks!</h1>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <Button color="primary" className="mb-5" onClick={() => {
+                localStorage.removeItem("QuestionId")
+                localStorage.removeItem("selecAns")
+                history.push('/testlist')
+            }}>Goto Testlist</Button>
+            <br></br>
+            <br></br>
+            <br></br>
+            <Button color="primary" onClick={() => {
+                localStorage.removeItem("QuestionId")
+                localStorage.removeItem("selecAns")
+                history.push('/')
+            }}>Home</Button>
         </div>
     )
 }

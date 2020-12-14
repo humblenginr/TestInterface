@@ -95,25 +95,30 @@ export const AttemptPage = () => {
                 </div>
                 <div className="btnsGroup">
                     <div className="btn btn-success mr-3" onClick={() => {
+                        localStorage.removeItem("a");
                         clearInterval(timer);
-                        localStorage.removeItem('a')
                         history.push('/testcomplete')
                     }}>Submit</div>
+
+
+
                     <div className="btn btn-success mr-3" onClick ={() => {
                         var value = currentQuestionNo + 1;
                         setCurrentQuestionNo(value)
                         var obj = JSON.parse(localStorage.selecAns);
                         obj[value] = selectedOption;
                         localStorage.selecAns = JSON.stringify(obj)
-                    
-                        
-                        
-                    
                     }}>Save and Next</div>
+
+
+
                     <div className="btn btn-success mr-3" onClick= {() => {
                             var value = currentQuestionNo - 1;
                             setCurrentQuestionNo(value)
                     }}>Previous</div>
+
+
+
                     <div className="btn btn-success mr-3" onClick={() => {
                         clearInterval(timer);
                         localStorage.removeItem("a");
@@ -121,6 +126,9 @@ export const AttemptPage = () => {
                         localStorage.removeItem("selecAns")
                         history.push('/testlist')
                     }}>Abort</div>
+
+
+
                 </div>
             </div>
             <div className="right-col col-4 mt-5 mb-5 ">
