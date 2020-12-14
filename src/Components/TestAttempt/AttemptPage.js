@@ -91,7 +91,11 @@ export const AttemptPage = () => {
                     </div>
                 </div>
                 <div className="btnsGroup">
-                    <div className="btn btn-success mr-3">Submit</div>
+                    <div className="btn btn-success mr-3" onClick={() => {
+                        clearInterval(timer);
+                        localStorage.removeItem('a')
+                        history.push('/testcomplete')
+                    }}>Submit</div>
                     <div className="btn btn-success mr-3" onClick ={() => {
                         var value = currentQuestionNo + 1;
                         setCurrentQuestionNo(value)
@@ -111,6 +115,7 @@ export const AttemptPage = () => {
                         clearInterval(timer);
                         localStorage.removeItem("a");
                         localStorage.removeItem("QuestionId")
+                        localStorage.removeItem("selecAns")
                         history.push('/testlist')
                     }}>Abort</div>
                 </div>
