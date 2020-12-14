@@ -13,7 +13,7 @@ export const TestColumn = () => {
                     </div>
                     <div class="card-body pt-0">
                         <p class="card-text">Look at the tests you attempted and see where you stand among your peers!</p>
-                        <a href="#" class="btn btn-outline-dark btn-block">Attempted Tests</a>
+                        <a href="/attemptedTests" class="btn btn-outline-dark btn-block">Attempted Tests</a>
                     </div>
                 </div>
             </div>

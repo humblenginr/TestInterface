@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute"
 import { TestList } from './TestAttempt/TestList';
 import { AttemptPage } from './TestAttempt/AttemptPage';
 import { OnTestComplete } from './TestAttempt/OnTestComplete';
+import { AttemptedTests } from './TestAttempt/AttemptedTests';
 
 
 
@@ -25,6 +26,7 @@ const App = () => {
                       <Route path="/testlist" component={TestList}/>
                       <Route path="/testattempt" component={AttemptPage}/>
                       <Route path="/testcomplete" component={OnTestComplete}/>
+                      <Route path="/attemptedTests" component={AttemptedTests}/>
                     </Switch>  
                 </TodoProvider>             
               </AuthProvider>
