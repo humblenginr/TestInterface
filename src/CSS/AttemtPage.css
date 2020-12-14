@@ -77,6 +77,7 @@
     right: 10%;
 }
 
+<<<<<<< HEAD
 .options{
     height: 100%;
     width: 100%;
@@ -84,4 +85,9 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+=======
+.Group{
+    display: flex;
+    flex-direction: column;
+>>>>>>> 4c7f7959eb2d9210e94f8a090867075ac72817da
 }

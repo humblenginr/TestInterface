@@ -6,35 +6,29 @@ import { Input, Label } from 'reactstrap'
 import { useAuth } from '../../Contexts/Authcontext'
 import "../../CSS/AttemtPage.css"
 import { database } from '../../Utils/firebase'
-import { QuestionDisplay } from './QuestionDisplay'
+import {Button} from "reactstrap"
 
 export const AttemptPage = () => {
 
-    const history =useHistory()
-    const {SelectedAnswers} = useAuth();
-    var ln;
+    const [questions, setQuestions] = useState()
+    const [options, setOptions] = useState()
+    var questionToBeDisplayed ;
+    const [currentQuestionNo,setCurrentQuestionNo] = useState(0);
+    const [selectedOption,setSelectedOption] = useState();
+    
 
+        
+
+
+ const history =useHistory()
 
 
     useEffect(() => {
         const startDate = new Date()
-        database.collection("Questions").get().then(
-            snap => {
-                console.log(snap.docs.length);
-                document.getElementById("abort").addEventListener("click", () => {
-                    for (let i = 0; i < snap.docs.length; i++) {
-                        var item = i+1;
-                        localStorage.removeItem(item)
-                        
-                    }
-                    localStorage.removeItem("a");
-                    localStorage.removeItem("qno")
-                    clearInterval(timer)
-                    history.push("/testlist")
-
-                })
-            }
-        )
+        const questions = [];
+        var options = []
+        
+        
 
         if(!(localStorage.a)){
 
@@ -45,14 +39,24 @@ export const AttemptPage = () => {
 
 
 
+        database.collection("Questions").doc(localStorage.QuestionId).collection("Question").get().then(
+            snap => {
+                snap.docs.forEach( doc => {
+                    questions.push(doc.data().Question)
+                    options.push(doc.data().Options)
+                    
+                })
+                
+            setQuestions(questions)
+            setOptions(options)
+            }
+        )
+
     }, [])
 
-
-
-
-
-    
-
+        if(questions) questionToBeDisplayed = questions[currentQuestionNo];
+        if(options) var optionsToBeDisplayed = options[currentQuestionNo];
+        
         
     const timer = setInterval(() => {
         var endDate = new Date()
@@ -68,6 +72,7 @@ export const AttemptPage = () => {
         
     },1000)
 
+
     
     return (
         <div className="row Row">
@@ -76,20 +81,46 @@ export const AttemptPage = () => {
                     user cred
                 </div>
                 <div className="qDisplay border">
-                     <QuestionDisplay></QuestionDisplay>
-
-
+                    <div className="Group">
+                    {questionToBeDisplayed && questionToBeDisplayed}
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    {optionsToBeDisplayed && optionsToBeDisplayed.map( e => (
+                        <Button color="light" className = "mb-4 "onClick={() => {
+                            setSelectedOption(e)
+                        }} active={selectedOption === e}>{e} </Button>
+                    ))}
+                    </div>
                 </div>
                 <div className="btnsGroup">
-                    <div className="btn btn-success mr-3" onClick= { () => {
+                    <div className="btn btn-success mr-3" onClick={() => {
+                        clearInterval(timer);
+                        localStorage.removeItem('a')
+                        history.push('/testcomplete')
+                    }}>Submit</div>
+                    <div className="btn btn-success mr-3" onClick ={() => {
+                        var value = currentQuestionNo + 1;
+                        setCurrentQuestionNo(value)
+                        var obj = JSON.parse(localStorage.selecAns);
+                        obj[value] = selectedOption;
+                        localStorage.selecAns = JSON.stringify(obj)
+                    
+                        
+                        
+                    
+                    }}>Save and Next</div>
+                    <div className="btn btn-success mr-3" onClick= {() => {
+                            var value = currentQuestionNo - 1;
+                            setCurrentQuestionNo(value)
+                    }}>Previous</div>
+                    <div className="btn btn-success mr-3" onClick={() => {
+                        clearInterval(timer);
                         localStorage.removeItem("a");
-                        localStorage.removeItem("qno")
-                        clearInterval(timer)
-                        history.push("/testcomplete")
-                    }}> Submit</div>
-                    <div className="btn btn-success mr-3" id="next">Save and Next</div>
-                    <div className="btn btn-success mr-3" id="prev">Previous</div>
-                    <div className="btn btn-success mr-3" id="abort">Abort</div>
+                        localStorage.removeItem("QuestionId")
+                        localStorage.removeItem("selecAns")
+                        history.push('/testlist')
+                    }}>Abort</div>
                 </div>
             </div>
             <div className="right-col col-4 mt-5 mb-5 ">
@@ -97,11 +128,20 @@ export const AttemptPage = () => {
 
                 </div>
                 <div className="qPalatte border ">
-                    qPalatte
+                    {questions && 
+                    questions.map( (e,index) => {
+                        return(
+                            <Button className="mr-2 mt-3" onClick={() => {
+                                setCurrentQuestionNo(index)
+                            }}>{index+1}</Button>
+                        )
+                    })}
                 </div>
             
             </div>
         
         </div>
     )
+
+
 }

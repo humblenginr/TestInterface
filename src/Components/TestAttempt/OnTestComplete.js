@@ -1,77 +1,53 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom';
-import { useAuth } from '../../Contexts/Authcontext';
 import { database } from '../../Utils/firebase'
 
 export const OnTestComplete = () => {
 
-    const CorrectAnswers = [];
-    const {SelectedAnswers} = useAuth();
-    var marks = 0;
-    const [render, setRender] = useState()
-    const history  = useHistory()
+    
+    var selectedAnswers = Object.values(JSON.parse(localStorage.selecAns));
+    const [marks, setMarks] = useState(0)
+    
     
 
     useEffect(() => {
-        database.collection("Answers").doc("Question1").get().then(
+        
+        var correctAnswers;
+        
+        
+        database.collection("Answers").doc(localStorage.QuestionId).get().then(
             snap => {
-                var data;
-                data = snap.data();
-                for(var values of Object.values(data)){
-                    CorrectAnswers.push(values)
-                }
+                correctAnswers = snap.data().OrderedAns
 
-                for (let i = 0; i < CorrectAnswers.length; i++) {
-                    SelectedAnswers.push(JSON.parse(localStorage.getItem(i+1)))
-                    
-                }
-
-                for (let i = 0; i < SelectedAnswers.length; i++) {
-                    if(SelectedAnswers[i] === CorrectAnswers[i]) {
-                        marks++
+                if(correctAnswers){
+                    var value = 0;
+                    for (let i = 0; i < selectedAnswers.length; i++) {
                         
-                    };  
-                }
-                setRender(marks);
-
-                document.getElementById("homeBtn").addEventListener("click", () => {
-
-         
-                    for (let i = 0; i < SelectedAnswers.length; i++) {
-                        var item = i+1;
-                        localStorage.removeItem(item)
+                            if(selectedAnswers[i] === correctAnswers[i]){
+                                 value++;
+                            }
+                        
                         
                     }
-                    history.push("/")
-    
-                
-    
-    
-            })
-                
-            } 
-    
+                    
+                }
+                setMarks(value)
+                console.log(correctAnswers);
+            }
+            
         )
-
-
+            
 
     },[])
 
-    function Evaluate () {
+    // if(correctAnswers) console.log(correctAnswers);
 
-    }
 
-    Evaluate()
 
     return (
         <div>
-            HI, you have scored <br></br>
-            <h1>{render && render}</h1>
+            Hi, your test has completed!!
             <br></br>
-            marks
-
-            <div className="btn btn-outline-primary ml-5" id="homeBtn">Home</div>
-            
+            <h1>You have scored {marks} marks!</h1>
         </div>
     )
 }
