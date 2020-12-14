@@ -30,7 +30,7 @@ export const QuestionDisplay = () => {
     
                     if(radBtns[i].checked) {
                         localStorage.setItem(value-1,i+1)
-                        radBtns[i].checked = false
+                        // radBtns[i].checked = false
                     }
                     
                 }

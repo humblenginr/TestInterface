@@ -3,6 +3,7 @@ import "../../CSS/testList.css"
 
 export const TestList = () => {
     useEffect(() => {
+        
         const links = document.getElementsByClassName("links")
         for (let i = 0; i < 7; i++) {
             links[i].addEventListener("click", () => {
