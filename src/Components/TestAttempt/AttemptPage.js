@@ -15,6 +15,7 @@ export const AttemptPage = () => {
     var questionToBeDisplayed ;
     const [currentQuestionNo,setCurrentQuestionNo] = useState(0);
     const [selectedOption,setSelectedOption] = useState();
+    const {currentUser} = useAuth()
     
 
         
@@ -78,7 +79,7 @@ export const AttemptPage = () => {
         <div className="row Row">
             <div className=" left-col col-8 mt-5 mb-5">
                 <div className="userCred border">
-                    user cred
+                    {currentUser && currentUser.displayName}
                 </div>
                 <div className="qDisplay border">
                     <div className="Group">

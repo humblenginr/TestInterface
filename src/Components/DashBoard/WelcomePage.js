@@ -12,7 +12,6 @@ export const WelcomePage = () => {
     const {currentUser} = useAuth()
 
 
-
     return (
         <div className="welcomepage">
 
