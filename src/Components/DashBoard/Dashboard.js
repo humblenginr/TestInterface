@@ -3,6 +3,7 @@ import {  Alert, Col, Row, Card, Modal, Button, Form, InputGroup, FormControl } 
 import {useHistory } from 'react-router-dom'
 
 import { useAuth } from '../../Contexts/Authcontext'
+import { database } from '../../Utils/firebase'
 import { Footer } from './Footer'
 import { Navbar1 } from './Navbar1'
 import { TestColumn } from './TestColumn'
@@ -28,9 +29,10 @@ export const Dashboard = () => {
         console.log("code reached");
         currentUser.updateProfile({
             displayName: name
+        }).then(() => {
+            setShow(false);
         })
-        setShow(false);
-        window.location.reload();
+        
     }
     return (
         <div>

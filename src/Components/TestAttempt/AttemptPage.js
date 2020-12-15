@@ -109,6 +109,11 @@ export const AttemptPage = () => {
                         var obj = JSON.parse(localStorage.selecAns);
                         obj[value] = selectedOption;
                         localStorage.selecAns = JSON.stringify(obj)
+                        if(value>=questions.length){
+                            localStorage.removeItem("a");
+                            clearInterval(timer);
+                            history.push('/testcomplete')
+                        }
                     }}>Save and Next</div>
 
 
