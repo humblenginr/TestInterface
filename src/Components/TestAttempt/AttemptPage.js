@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { Alert, FormGroup } from 'react-bootstrap'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import { Input, Label } from 'reactstrap'
 import { useAuth } from '../../Contexts/Authcontext'
 import "../../CSS/AttemtPage.css"
@@ -57,18 +57,17 @@ export const AttemptPage = () => {
 
         if(questions) questionToBeDisplayed = questions[currentQuestionNo];
         if(options) var optionsToBeDisplayed = options[currentQuestionNo];
+
         
-        
-    const timer = setInterval(() => {
-        var endDate = new Date()
+    var timer = setInterval(() => {
+        if(!(document.getElementById("countdown"))) {
+            return
+        }
+        var endDate = new Date() 
         var seconds = (Date.parse(endDate) - Date.parse(localStorage.a))/1000
         var minutes = Math.floor(seconds/60)
         document.getElementById("countdown").innerHTML = minutes + "  :  " + seconds%60;
-        if(minutes === 180){
-            clearInterval(timer);
-            localStorage.removeItem("a");
-            history.push('/testcomplete')
-        }
+
 
         
     },1000)

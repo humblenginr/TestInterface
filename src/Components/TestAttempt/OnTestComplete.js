@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import { database } from '../../Utils/firebase'
 import { useAuth } from '../../Contexts/Authcontext';
@@ -12,11 +12,11 @@ export const OnTestComplete = () => {
     const history = useHistory();
     const {currentUser} = useAuth()
     
-    
 
     useEffect(() => {
         
         var correctAnswers;
+
         
         
         database.collection("Answers").doc(localStorage.QuestionId).get().then(
@@ -41,7 +41,6 @@ export const OnTestComplete = () => {
             
         )
             
-
     },[])
 
    

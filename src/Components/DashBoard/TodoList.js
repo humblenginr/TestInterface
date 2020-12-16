@@ -117,8 +117,9 @@ export const TodoList = () => {
                             </ListGroupItem>
                         )}
                     </ListGroup>
+                   {todos && <h4 className="text-white bottom-0"> Click on the todo to remove it</h4>} 
                 </div>
-
+                        
         </div>
     )
 }
