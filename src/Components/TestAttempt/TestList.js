@@ -34,8 +34,9 @@ export const TestList = () => {
                         </div>
                     ))
                 }
-                
+                <h4 className="text-white">Note that only questions 1 and 2 have data in them</h4>
             </div>
+            
             
         </div>
     )

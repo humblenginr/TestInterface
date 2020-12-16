@@ -18,6 +18,7 @@ export const AttemptedTests = () => {
 
     return (
         <div>
+            <h3>You will see your marks here once you have completed atleast one test</h3>
             {attemptedTests && Object.keys(attemptedTests).map((e,index) => (
                 <h3 id={index}>{e}</h3>
             ))}
