@@ -6,7 +6,7 @@ import { useAuth } from '../Contexts/Authcontext'
 
     const {currentUser} = useAuth()
     return (
-      <Route {...rest} render= {props => ( currentUser? <Component {...props} /> : <Redirect to="/login" />) } />
+      <Route {...rest} render= {props => ( currentUser? <Component {...props} /> : <Redirect to="/signup" />) } />
     )
 }
 export default PrivateRoute
