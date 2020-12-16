@@ -36,7 +36,7 @@ export const TodoList = () => {
 
     React.useEffect(() => {
         var data = []
-        database.collection(currentUser.uid).get()
+        database.collection(currentUser.uid).where("typ", "==", "todo").get()
             .then(snap => {
                 snap.docs.forEach(e => {
                     data.push(e.data())
@@ -64,7 +64,8 @@ export const TodoList = () => {
 
             const todoObject = {
                 todo,
-                id: v4()
+                id: v4(),
+                typ: "todo"
             }
 
             //dispatching to the reducer
